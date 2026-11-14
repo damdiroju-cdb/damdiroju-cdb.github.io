@@ -1,2 +1,3 @@
-# damdiroju-cdb.github.io
-Pasarela: redirige las direcciones antiguas a penalva.pages.dev
+# Pasarela
+
+Redirige las direcciones antiguas (damdiroju-cdb.github.io/Rutas/...) a https://penalva.pages.dev
