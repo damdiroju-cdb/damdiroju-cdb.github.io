@@ -2,8 +2,21 @@
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex"><title>Penalva · cambio de dirección</title>
 <script>
-(function(){var p=location.pathname.replace(/^\/Rutas(?=\/|$)/i,'')||'/';
-location.replace('https://penalva.pages.dev'+p+location.search+location.hash);})();
+(function(){
+var N='https://penalva.pages.dev';
+var p=location.pathname.replace(/^\/Rutas(?=\/|$)/i,'')||'/';
+var q=new URLSearchParams(location.search), c=q.get('c')||'';
+var COT={"abraam":"abraham-megias","david-guadix":"david-sierra","jorge":"jorge-ortega","avidad":"jose-manuel-avidad","juanma-cabrerizo":"juan-manuel-cabrerizo","juanma-nordwik":"juan-manuel-martin","manolo-borrego":"manuel-borrego","sebastian":"sebastian-doncel","batseva":"televenta-nordwik"};
+var app=false; try{app=matchMedia('(display-mode: standalone)').matches||navigator.standalone===true}catch(e){}
+// Desde el icono viejo instalado (biblioteca, cuadro de ventas o cotizador): a la app nueva con guía para instalarla y borrar la vieja
+if(app && /^\/(catalogo\/biblioteca|ventas|cotizador)(\/|$)/.test(p)){
+  var s=/^\/cotizador/.test(p)?(COT[c]||c):c;
+  if(s==='todos') s='';
+  location.replace(N+'/catalogo/biblioteca/?'+(s?'c='+encodeURIComponent(s)+'&':'')+'instalar=1&mudanza=1');
+  return;
+}
+location.replace(N+p+location.search+location.hash);
+})();
 </script></head>
 <body style="font-family:system-ui,sans-serif;text-align:center;padding:40px 16px;color:#333">
 <p>Nos hemos mudado. Abriendo la página…</p>
