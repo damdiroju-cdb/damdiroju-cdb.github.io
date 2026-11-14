@@ -9,7 +9,7 @@ var q=new URLSearchParams(location.search), c=q.get('c')||'';
 var COT={"abraam":"abraham-megias","david-guadix":"david-sierra","jorge":"jorge-ortega","avidad":"jose-manuel-avidad","juanma-cabrerizo":"juan-manuel-cabrerizo","juanma-nordwik":"juan-manuel-martin","manolo-borrego":"manuel-borrego","sebastian":"sebastian-doncel","batseva":"televenta-nordwik"};
 var app=false; try{app=matchMedia('(display-mode: standalone)').matches||navigator.standalone===true}catch(e){}
 // Desde el icono viejo instalado (biblioteca, cuadro de ventas o cotizador): a la app nueva con guía para instalarla y borrar la vieja
-if(app && /^\/(catalogo\/biblioteca|ventas|cotizador)(\/|$)/.test(p)){
+if((app && /^\/(ventas|cotizador)(\/|$)/.test(p)) || /^\/catalogo\/biblioteca(\/|$)/.test(p)){
   var s=/^\/cotizador/.test(p)?(COT[c]||c):c;
   if(s==='todos') s='';
   location.replace(N+'/catalogo/biblioteca/?'+(s?'c='+encodeURIComponent(s)+'&':'')+'instalar=1&mudanza=1');
